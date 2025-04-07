@@ -23,7 +23,7 @@ This is a Symfony-based project designed to calculate commissions for transactio
 
 2. **Install project dependencies: Run the following command to install all necessary dependencies using Composer:**
     ```bash
-    composer install
+    composer install --dev
     ```
 3. **Set up environment variables:** Ensure you have a .env.local file with the appropriate configuration for the API. If it doesn’t exist, create one with the following content
     ```
@@ -35,7 +35,7 @@ This is a Symfony-based project designed to calculate commissions for transactio
 
 To calculate commissions for transactions from a CSV file, run the following command:
 
-    ```bash
+    ```
     php bin/console app:calculate-commissions example-data.csv
     ```
 
