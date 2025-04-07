@@ -1,0 +1,30 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+root = true
+
+[*]
+# Set default charset
+charset = utf-8
+
+# Indentation settings (PSR-12 uses 4 spaces for indentation)
+indent_style = space
+indent_size = 4
+
+# End of file settings (PSR-12 mandates 1 blank line at the end of each file)
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Set max line length to 120 characters (PSR-12 allows up to 120)
+max_line_length = 120
+
+# Set line endings to LF (PSR-12 prefers LF as the newline character)
+end_of_line = lf
+
+# [*.php] specific rules
+[*.php]
+# Add or remove blank lines before and after the PHP tag
+php_tag_newline = true
+
+# Enforce the use of spaces after the opening parenthesis of function and method declarations
+# PSR-12 requires this
+space_after_anon_function = true
