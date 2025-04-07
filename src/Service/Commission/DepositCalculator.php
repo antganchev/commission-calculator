@@ -7,6 +7,8 @@ use App\Enum\OperationType;
 
 class DepositCalculator implements CommissionCalculatorInterface
 {
+    private const COMMISSION_RATE = 0.0003; // 0.03% commission rate
+
     public function supports(Transaction $transaction): bool
     {
         return $transaction->operationType === OperationType::Deposit;
@@ -14,11 +16,11 @@ class DepositCalculator implements CommissionCalculatorInterface
 
     public function calculate(Transaction $transaction): float
     {
-        return round($transaction->amount * $this->getCommission(), 2); // 0.03% commission
+        return round($transaction->amount * $this->getCommission(), 2);
     }
 
     public function getCommission(): float
     {
-        return 0.0003; // 0.03% commission rate
+        return self::COMMISSION_RATE;
     }
 }

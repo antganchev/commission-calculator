@@ -8,6 +8,8 @@ use App\Enum\UserType;
 
 class BusinessWithdrawCalculator implements CommissionCalculatorInterface
 {
+    private const COMMISSION_RATE = 0.005; // 0.5% commission rate
+
     public function supports(Transaction $transaction): bool
     {
         return $transaction->userType === UserType::Business && $transaction->operationType === OperationType::Withdraw;
@@ -15,11 +17,11 @@ class BusinessWithdrawCalculator implements CommissionCalculatorInterface
 
     public function calculate(Transaction $transaction): float
     {
-        return round($transaction->amount * $this->getCommission(), 2); // 0.5% commission for business clients
+        return round($transaction->amount * $this->getCommission(), 2);
     }
 
     public function getCommission(): float
     {
-        return 0.005; // 0.5% commission rate
+        return self::COMMISSION_RATE;
     }
 }

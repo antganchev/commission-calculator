@@ -12,6 +12,7 @@ class PrivateWithdrawCalculator implements CommissionCalculatorInterface
 {
     private const MAX_FREE_WITHDRAWAL = 1000.0; // Maximum free withdrawal amount
     private const MAX_FREE_COUNT = 3; // Maximum free withdrawal count
+    private const COMMISSION_RATE = 0.003;
 
     public function __construct(
         private WithdrawHistoryService $historyService,
@@ -75,7 +76,7 @@ class PrivateWithdrawCalculator implements CommissionCalculatorInterface
 
     public function getCommission(): float
     {
-        return 0.003; // 0.3% commission rate
+        return self::COMMISSION_RATE;
     }
 
     private function getWeekKey(\DateTimeImmutable $date): string
